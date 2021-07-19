@@ -26,7 +26,6 @@ int main()
     g = Side(x1, y1, x4, y4);
     double SquarePolygon = SquareTriangle(a, b, f) + SquareTriangle(c, f, g) + SquareTriangle(d, e, g);
     cout << "Площадь пятиугольна = " << SquarePolygon << endl;
-    return 0;
 }
 
 double Side(double x1, double y1, double x2, double y2)

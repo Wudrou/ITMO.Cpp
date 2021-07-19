@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
     system("chcp 1251");
+    system("cls");
     int year;
     cout << "Введите год: ";
     cin >> year;
