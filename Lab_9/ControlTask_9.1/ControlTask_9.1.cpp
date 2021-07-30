@@ -3,6 +3,15 @@
 
 using namespace std;
 
+class SidesTriangleError
+{
+public:
+    SidesTriangleError() : message("Сумма двух сторон не может быть меньше третьей.") {}
+    void printMessage() const { cout << message << endl; }
+private:
+    string message;
+};
+
 class Triangle
 {
 public:
@@ -11,6 +20,8 @@ public:
         a = side1;
         b = side2;
         c = side3;
+        if ((a + b < c) || (a + c < b) || (b + c < a))
+            throw SidesTriangleError();
     }
     void SquareTriangle()
     {
@@ -23,15 +34,6 @@ private:
     double c;
 };
 
-class SidesTriangleError
-{
-public:
-    SidesTriangleError() : message("Сумма двух сторон не может быть меньше третьей.") {}
-    void printMessage() const { cout << message << endl; }
-private:
-    string message;
-};
-
 int main()
 {
     system("chcp 1251");
@@ -42,11 +44,10 @@ int main()
 
     try
     {
-        if ((a + b < c) or (a + c < b) or (b + c < a))
-            throw SidesTriangleError();
         Triangle t(a, b, c);
-        cout << "Площадь = " << endl;
+        cout << "Площадь = ";
         t.SquareTriangle();
+        cout << endl;
     }
     catch (SidesTriangleError& error)
     {
